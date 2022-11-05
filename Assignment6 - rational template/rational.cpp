@@ -41,7 +41,7 @@
 #include <cstdlib>  // abs
 
 namespace CS170 {
-    template < typename T> 
+    template <typename T> 
     int Rational<T>::width = 0; // no padding by default
 
 /*!*****************************************************************************
@@ -51,7 +51,7 @@ namespace CS170 {
 \return 
     N/A
 *******************************************************************************/
-    template < typename T> 
+    template <typename T> 
     Rational<T>::Rational()               : n(0),  d(1)   {}
 
 /*!*****************************************************************************
@@ -61,7 +61,7 @@ namespace CS170 {
 \return 
     N/A
 *******************************************************************************/
-    template < typename T> 
+    template <typename T> 
     Rational<T>::Rational( T i )        : n(i),  d(1)   {}
  
 /*!*****************************************************************************
@@ -71,7 +71,7 @@ namespace CS170 {
 \return 
     N/A
 *******************************************************************************/
-    template < typename T> 
+    template <typename T> 
     Rational<T>::Rational(T _n, T _d) : n(_n), d(_d)  { CheckSign(); CheckGCD(); }
 
 /*!*****************************************************************************
@@ -356,7 +356,7 @@ namespace CS170 {
     false otherwise.
 *******************************************************************************/
 
-    template < typename U> 
+    template <typename U> 
     std::ostream& operator<<( std::ostream& os, Rational<U> const& r ) 
     {
         os << std::setw( r.width ) << r.n;
@@ -365,13 +365,13 @@ namespace CS170 {
         return os;
     }
     ////////////////////////////////////////////////////////////////////////
-    template < typename T> 
+    template <typename T> 
     void Rational<T>::CheckSign() 
     {
         if ( d<0 ) { n *= -1; d*= -1; }
     }
     ////////////////////////////////////////////////////////////////////////
-    template < typename T> 
+    template <typename T> 
     void Rational<T>::CheckGCD() 
     {
         int gcd = GCD();
@@ -379,7 +379,7 @@ namespace CS170 {
         d = d/gcd;
     }
     ////////////////////////////////////////////////////////////////////////
-    template < typename T> 
+    template <typename T> 
     int Rational<T>::GCD() const 
     {
         int a=std::abs(n), b=std::abs(d);
